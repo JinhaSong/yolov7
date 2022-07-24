@@ -1,0 +1,35 @@
+version: '2.3'
+
+services:
+  main:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    runtime: nvidia
+    restart: always
+    env_file:
+      - "docker-compose-env/main.env"
+    volumes:
+      - type: volume
+        source: mlsun
+        target: /mlsun
+        volume:
+          nocopy: true
+    expose:
+      - "8888"
+      - "8000"
+      - "22"
+    ports:
+      - "28000:8000"
+      - "28888:8888"
+      - "20022:22"
+    stdin_open: true
+    tty: true
+
+volumes:
+  mlsun:
+    driver_opts:
+      type: "nfs"
+      o: "addr=mlsun.sogang.ac.kr,nolock,soft,rw"
+      device: ":/volume1/nfs_shared"
+python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg
