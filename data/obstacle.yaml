@@ -1,8 +1,8 @@
 # Obstacle 15 by mmlab of Sogang University
 
-train: /mlsun/cctv/dataset/obstacle/yolov5images/train  # 278789 images
-val: /mlsun/cctv/dataset/obstacle/yolov5images/val      #  46464 images
-test: /mlsun/cctv/dataset/obstacle/yolov5images/test    #  46464 images
+train: /mlsun/cctv/dataset/obstacle/yolov5/images/train  # 278789 images
+val: /mlsun/cctv/dataset/obstacle/yolov5/images/val      #  46464 images
+test: /mlsun/cctv/dataset/obstacle/yolov5/images/test    #  46464 images
 
 # number of classes
 nc: 15
