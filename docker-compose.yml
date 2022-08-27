@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     runtime: nvidia
     restart: always
+    ipc: "host"
     env_file:
       - "docker-compose-env/main.env"
     volumes:
@@ -32,4 +33,3 @@ volumes:
       type: "nfs"
       o: "addr=mlsun.sogang.ac.kr,nolock,soft,rw"
       device: ":/volume1/nfs_shared"
-python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg
