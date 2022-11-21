@@ -9,5 +9,5 @@ nc: 15
 
 # class names
 names: ['person', 'bicycle', 'bus', 'car', 'carrier',
-        'motorcycle', 'movable signage', 'truck', 'bollard', 'chair',
-        'potted plant', 'table', 'tree trunk', 'fire hydrant', 'pole']  # class names
+        'motorcycle', 'movable_signage', 'truck', 'bollard', 'chair',
+        'potted_plant', 'table', 'tree_trunk', 'fire_hydrant', 'pole']  # class names
