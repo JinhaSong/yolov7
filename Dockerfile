@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get -y install python3 \
     python3-pip \
     python3-dev \
-    git ssh vim
+    git ssh vim libgl1
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 RUN ln -s /usr/bin/python3 /usr/bin/python
