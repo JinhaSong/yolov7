@@ -94,7 +94,7 @@ class YOLOv7:
         return results
 
 
-    def inference_image_batch(self, images, score_max=100):
+    def inference_image_batch(self, images):
         """
         :param image: input images(list in dict: [np array])
         :return: detection results(bounding box(x1, y1, x2, y2), score, class, class index) of each images
@@ -134,10 +134,7 @@ class YOLOv7:
                 detn[:, :4] = scale_coords(image[si].shape[1:], detn[:, :4], tuple(shapes[si][0])).round()
                 for *xyxy, conf, cls in reversed(detn.tolist()):
                     if conf > self.conf_thresh:
-                        if score_max == 100:
-                            score = float(conf) * score_max
-                        else:
-                            score = float(conf)
+                        score = float(conf)
                         x = float(xyxy[0])
                         y = float(xyxy[1])
                         w = float(xyxy[2]) - x
