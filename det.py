@@ -34,7 +34,7 @@ class YOLOv7:
             self.batch_size = 1
         __, self.class_names = get_class(self.dataset)
 
-        self.device = select_device("0", batch_size=self.batch_size)
+        self.device = torch.device("cuda:" + device)
         self.model = attempt_load(self.weight_path, map_location=self.device)  # load FP32 model
         self.model.eval()
         self.model(torch.zeros(1, 3, self.image_size, self.image_size).to(self.device).type_as(next(self.model.parameters())))  # run once
